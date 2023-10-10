@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Welcome to the Admin Panel</h1>
+    <p>This is the dashboard of your Telegram bot admin panel.</p>
+    <% if (user) { %>
+    <h2>User Details</h2>
+    <p>Name: <%= user.displayName %></p>
+    <p>Email: <%= user.emails[0].value %></p>
+    <h2>Subscribe Usernames</h2>
+    <ul>
+        <% for (const username of subscribedUsernames) { %>
+        <li><%= username %></li>
+        <% } %>
+    </ul>
+    <% } else { %>
+    <p>You are not logged in.</p>
+    <button onclick="location.href='admin/auth/google'">Login</button>
+    <% } %>
+</body>
+</html>
+
